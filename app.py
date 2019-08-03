@@ -1,45 +1,17 @@
 import os
+
 from flask import Flask
-from flask import request
-from flask import session
-from flask import redirect
 from flask import render_template
+from flask import session
 from flask_wtf import CSRFProtect
+from example.api_v1 import api
+from example.web import web
 
 from models import db
-from models import Fcuser
-from forms import RegisterForm, LoginForm
 
 app = Flask(__name__)
-
-@app.route('/logout', methods=['GET'])
-def logout():
-    session.pop('userid', None)
-    return redirect('/')
-
-@app.route('/login', methods=['GET', 'POST'])
-def login():
-    form = LoginForm()
-    if form.validate_on_submit():
-        session['userid'] = form.data.get('userid')
-        return redirect('/')
-
-    return render_template('login.html', form = form)
-
-@app.route('/register', methods=['GET', 'POST'])
-def register():
-    form = RegisterForm()
-    if form.validate_on_submit():
-        fcuser = Fcuser()
-        fcuser.userid = form.data.get('userid')
-        fcuser.username = form.data.get('username')
-        fcuser.password = form.data.get('password')
-
-        db.session.add(fcuser) # 저장
-
-        return redirect('/')
-
-    return render_template('register.html', form = form)
+app.register_blueprint(api, url_prefix = '/example/api/v1')
+app.register_blueprint(web, url_prefix = '/example/web')
 
 @app.route('/')
 def hello():
