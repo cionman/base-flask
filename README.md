@@ -1,6 +1,7 @@
 ## base-flask
 
 ### 1. 적용 기능
+- pipenv 적용
 - sqlalchemy orm
 - mysql 서버 연결
 - flask-wtf 통한 form 처리 및 csrf protection
