@@ -13,3 +13,11 @@
 
 - Web - example/web
 - Rest Api - example/api_v1
+
+
+### TODO 보완 필요
+
+- 레이아웃 템플릿 분리
+- 테스트 코드
+- 업로드 파일처리
+- 환경별 설정값 분리
