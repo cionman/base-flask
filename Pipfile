@@ -11,6 +11,7 @@ flask-sqlalchemy = "*" # ORM
 pymysql = "*"
 mysqlclient = "*"
 flask-wtf = "*"
+flask-jwt = "*"
 
 [requires]
 python_version = "3.6"
