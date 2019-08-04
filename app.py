@@ -26,6 +26,7 @@ app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://root:''@localhost:3306/
 app.config['SQLALCHEMY_COMMIT_ON_TEARDOWN'] = True  ## 메소드 종료시점에 commit
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.config['SECRET_KEY'] = 'ADASsdasd!@#SD23sdwe' # CSRF 키
+app.config['JSON_AS_ASCII'] = False #API 한글 깨짐 방지
 
 #csrf설정
 csrf = CSRFProtect()
